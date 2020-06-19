@@ -1,0 +1,16 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "io.github.samipourquoi.moretoolbars.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+  ],
+  "client": [
+    "MixinHotbarStorage",
+    "MixinMinecraftClient",
+    "MixinCreativeInventoryScreen"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
