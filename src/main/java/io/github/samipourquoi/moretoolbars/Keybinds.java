@@ -9,6 +9,11 @@ import net.minecraft.client.util.InputUtil;
 import net.minecraft.util.Identifier;
 import org.lwjgl.glfw.GLFW;
 
+/**
+ * Adds the keybinds for the modifiers of each group.
+ *
+ * @author samipourquoi
+ */
 @Environment(EnvType.CLIENT)
 public class Keybinds implements ModInitializer {
 

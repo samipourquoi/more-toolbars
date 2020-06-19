@@ -68,6 +68,9 @@ public abstract class MixinCreativeInventoryScreen extends AbstractInventoryScre
         }
     }
 
+    /**
+     * Cancels the render of the saved toolbars.
+     */
     @ModifyConstant(
         method = "setSelectedTab",
         slice = @Slice(
@@ -85,6 +88,9 @@ public abstract class MixinCreativeInventoryScreen extends AbstractInventoryScre
         return 0;
     }
 
+    /**
+     * "Overwrites" the render of the saved toolbars.
+     */
     @Inject(
             method = "setSelectedTab",
             at = @At(

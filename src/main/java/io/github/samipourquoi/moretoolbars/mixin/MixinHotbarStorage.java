@@ -9,6 +9,11 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.Constant;
 import org.spongepowered.asm.mixin.injection.ModifyConstant;
 
+/**
+ * Changes some variables to make them compatible with 27 toolbars.
+ *
+ * @author samipourquoi
+ */
 @Environment(EnvType.CLIENT)
 @Mixin(HotbarStorage.class)
 public class MixinHotbarStorage {

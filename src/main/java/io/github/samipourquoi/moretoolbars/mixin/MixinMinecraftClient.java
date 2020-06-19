@@ -20,7 +20,6 @@ import java.util.ArrayList;
 
 /**
  * @author samipourquoi
- * @reason Overwrites the
  */
 @Mixin(MinecraftClient.class)
 @Environment(EnvType.CLIENT)
