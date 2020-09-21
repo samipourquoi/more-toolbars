@@ -33,7 +33,17 @@ public class MixinMinecraftClient {
     /**
      * Cancels the loop which checks if a key has been pressed to save/restore a toolbar.
      */
-    @ModifyConstant(method = "handleInputEvents", constant = @Constant(intValue = 9))
+    @ModifyConstant(
+            method = "handleInputEvents",
+            constant = @Constant(intValue = 9),
+            slice = @Slice(
+                    from = @At("HEAD"),
+                    to = @At(
+                            value = "INVOKE",
+                            target = "Lnet/minecraft/client/network/ClientPlayerInteractionManager;hasRidingInventory()Z"
+                    )
+            )
+    )
     private int noLoop(int i) {
         return 0;
     }
@@ -54,15 +64,12 @@ public class MixinMinecraftClient {
                 } else {
                     boolean[] pressedModifiers = {Keybinds.group1.isPressed(), Keybinds.group2.isPressed(), Keybinds.group3.isPressed()};
 
-                    if (pressedModifiers[0] || Keybinds.group1.isNotBound() && !(pressedModifiers[1] || pressedModifiers[2])) {
+                    if (pressedModifiers[0] || Keybinds.group1.isUnbound() && !(pressedModifiers[1] || pressedModifiers[2])) {
                         CreativeInventoryScreen.onHotbarKeyPress(MinecraftClient.getInstance(), i+0*9, bl2, bl);
-                        System.out.println(1);
-                    } else if (pressedModifiers[1] || Keybinds.group2.isNotBound() && !(pressedModifiers[0] || pressedModifiers[2])) {
+                    } else if (pressedModifiers[1] || Keybinds.group2.isUnbound() && !(pressedModifiers[0] || pressedModifiers[2])) {
                         CreativeInventoryScreen.onHotbarKeyPress(MinecraftClient.getInstance(), i+1*9, bl2, bl);
-                        System.out.println(2);
-                    } else if (pressedModifiers[2] || Keybinds.group3.isNotBound() && !(pressedModifiers[0] || pressedModifiers[1])) {
+                    } else if (pressedModifiers[2] || Keybinds.group3.isUnbound() && !(pressedModifiers[0] || pressedModifiers[1])) {
                         CreativeInventoryScreen.onHotbarKeyPress(MinecraftClient.getInstance(), i+2*9, bl2, bl);
-                        System.out.println(3);
                     }
                 }
             }
