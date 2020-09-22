@@ -121,7 +121,7 @@ public abstract class MixinCreativeInventoryScreen extends AbstractInventoryScre
             String hotbarKey;
             String saveKey;
 
-            if ((i % 9 == 0) && i != 0) displayItemIndex++;git 
+            if ((i % 9 == 0) && i != 0) displayItemIndex++;
             if (hotbarStorageEntry.isEmpty()) {
 
                 for(int j = 0; j < 9; j++) {
