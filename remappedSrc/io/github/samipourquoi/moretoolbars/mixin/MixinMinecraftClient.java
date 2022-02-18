@@ -60,7 +60,7 @@ public class MixinMinecraftClient {
                 if (this.player.isSpectator()) {
                     this.inGameHud.getSpectatorHud().selectSlot(i);
                 } else if (!this.player.isCreative() || this.currentScreen != null || !bl2 && !bl) {
-                    this.player.getInventory().selectedSlot = i;
+                    this.player.inventory.selectedSlot = i;
                 } else {
                     boolean[] pressedModifiers = {Keybinds.group1.isPressed(), Keybinds.group2.isPressed(), Keybinds.group3.isPressed()};
 

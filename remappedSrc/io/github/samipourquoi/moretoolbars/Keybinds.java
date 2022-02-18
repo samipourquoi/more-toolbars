@@ -6,7 +6,7 @@ import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.keybinding.FabricKeyBinding;
 import net.fabricmc.fabric.api.client.keybinding.KeyBindingRegistry;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
-import net.minecraft.client.option.KeyBinding;
+import net.minecraft.client.options.KeyBinding;
 import net.minecraft.client.util.InputUtil;
 import net.minecraft.util.Identifier;
 import org.lwjgl.glfw.GLFW;
