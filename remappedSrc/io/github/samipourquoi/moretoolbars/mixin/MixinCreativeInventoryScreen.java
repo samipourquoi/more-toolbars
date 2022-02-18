@@ -44,14 +44,14 @@ public abstract class MixinCreativeInventoryScreen extends AbstractInventoryScre
         if (restore) {
             for(j = 0; j < PlayerInventory.getHotbarSize(); j++) {
                 ItemStack itemStack = ((ItemStack)hotbarStorageEntry.get(j)).copy();
-                clientPlayerEntity.getInventory().setStack(j, itemStack);
+                clientPlayerEntity.inventory.setStack(j, itemStack);
                 client.interactionManager.clickCreativeStack(itemStack, 36 + j);
             }
 
             clientPlayerEntity.playerScreenHandler.sendContentUpdates();
         } else if (save) {
             for(j = 0; j < PlayerInventory.getHotbarSize(); j++) {
-                hotbarStorageEntry.set(j, clientPlayerEntity.getInventory().getStack(j).copy());
+                hotbarStorageEntry.set(j, clientPlayerEntity.inventory.getStack(j).copy());
             }
 
             String hotbarKey = getTranslationName(client.options.keysHotbar[index % 9]);
@@ -86,7 +86,7 @@ public abstract class MixinCreativeInventoryScreen extends AbstractInventoryScre
             ),
             to = @At(
                 value = "INVOKE",
-                target = "Lnet/minecraft/client/option/HotbarStorage;getSavedHotbar(I)Lnet/minecraft/client/option/HotbarStorageEntry;"
+                target = "Lnet/minecraft/client/options/HotbarStorage;getSavedHotbar(I)Lnet/minecraft/client/options/HotbarStorageEntry;"
             )
         ),
         constant = @Constant(intValue = 9)
@@ -102,7 +102,7 @@ public abstract class MixinCreativeInventoryScreen extends AbstractInventoryScre
             method = "setSelectedTab",
             at = @At(
                     value = "INVOKE",
-                    target = "Lnet/minecraft/client/MinecraftClient;getCreativeHotbarStorage()Lnet/minecraft/client/option/HotbarStorage;"
+                    target = "Lnet/minecraft/client/MinecraftClient;getCreativeHotbarStorage()Lnet/minecraft/client/options/HotbarStorage;"
             )
     )
     private void renderSavedToolbars(ItemGroup group, CallbackInfo info) {
@@ -127,7 +127,7 @@ public abstract class MixinCreativeInventoryScreen extends AbstractInventoryScre
                 for(int j = 0; j < 9; j++) {
                     if (i % 9 == j) {
                         ItemStack itemStack = new ItemStack(displayItems[displayItemIndex]);
-                        itemStack.getOrCreateSubNbt("CustomCreativeLock");
+                        itemStack.getOrCreateSubTag("CustomCreativeLock");
 
                         hotbarKey = getTranslationName(client.options.keysHotbar[j]);
                         saveKey = getTranslationName(client.options.keySaveToolbarActivator);

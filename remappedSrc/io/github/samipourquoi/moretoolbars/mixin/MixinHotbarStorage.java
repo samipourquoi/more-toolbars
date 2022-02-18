@@ -2,8 +2,8 @@ package io.github.samipourquoi.moretoolbars.mixin;
 
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.minecraft.client.option.HotbarStorage;
-import net.minecraft.client.option.HotbarStorageEntry;
+import net.minecraft.client.options.HotbarStorage;
+import net.minecraft.client.options.HotbarStorageEntry;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.Constant;

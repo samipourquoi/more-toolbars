@@ -1,6 +1,6 @@
 # More Toolbars
 
-Fabric Mod which adds 18 more toolbars! This mod needs Fabric API to work properly. Current version is for Minecraft 1.15.2.
+Fabric Mod which adds 18 more toolbars! This mod needs Fabric API to work properly. Current version is for Minecraft 1.18.1.
 
 # Compile
 
